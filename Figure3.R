@@ -13,7 +13,7 @@ head(data)
 world <- ne_countries(scale = "medium", returnclass = "sf")
 Europe <- world[which(world$continent == "Europe"),]
 # Hunter Gatherer distribution panel
-jpeg(file = paste(DIR,"data/Figure3_map_HG_distribution.jpeg", sep=""),width = 4,height =4,units="in",res =1000)
+jpeg(file = paste(DIR,"results/Figure3_map_HG_distribution.jpeg", sep=""),width = 4,height =4,units="in",res =1000)
 dd=data[data$col=="deepskyblue",]
 ggplot(Europe) + geom_sf() + coord_sf(xlim = c(-15,40), ylim = c(35,70), expand = FALSE) + 
   geom_point(data = dd, aes(x=long,y=lat),col=dd$col,inherit.aes = FALSE,pch=dd$pc,cex=4,show.legend = F) +
@@ -21,14 +21,14 @@ ggplot(Europe) + geom_sf() + coord_sf(xlim = c(-15,40), ylim = c(35,70), expand 
   theme(plot.title = element_text(colour = "black"))
 dev.off()
 #Neolithic Farmer spread
-jpeg(file = paste(DIR,"data/Figure3_map_ANF_distribution.jpeg", sep=""),width =4,height = 4,units="in",res =1000)
+jpeg(file = paste(DIR,"results/Figure3_map_ANF_distribution.jpeg", sep=""),width =4,height = 4,units="in",res =1000)
 dd=data[data$col=="orange2",]
 ggplot(Europe) + geom_sf() + coord_sf(xlim = c(-15,40), ylim = c(35,70), expand = FALSE) + 
   geom_point(data = dd, aes(x=long,y=lat),col=dd$col,inherit.aes = FALSE,pch=dd$pc,cex=4,show.legend = F) + 
   theme(plot.title = element_text(colour = "black"))
 dev.off()
 # MLBA bronze age samples
-jpeg(file =paste(DIR,"data/Figure3_map_SP_distribution.jpeg", sep=""),width = 5,height = 4,units="in",res =1000)
+jpeg(file =paste(DIR,"results/Figure3_map_SP_distribution.jpeg", sep=""),width = 5,height = 4,units="in",res =1000)
 dd=rbind(data[data$col=="green3",],data[data$col=="lightpink2",])
 ggplot(world) + geom_sf() + coord_sf(xlim = c(-15,90), ylim = c(30,80), expand = FALSE) + 
   geom_point(data = dd, aes(x=long,y=lat),col=dd$col,inherit.aes = FALSE,pch=dd$pc,cex=3,show.legend = F) + 
