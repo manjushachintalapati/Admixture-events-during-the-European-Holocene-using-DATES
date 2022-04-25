@@ -24,7 +24,7 @@ NRMSD <- function(y, yfit,na.rm = TRUE) {
 }
 DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
 # Maps 
-jpeg(file ="data/Figure2_map.jpeg",width = 12,height =6,units="in",res =1000)
+jpeg(file =paste(DIR,"results/Figure2_map.jpeg", sep="") ,width = 12,height =6,units="in",res =1000)
 dd=read.table(file = paste(DIR,"data/Figure2_Data_map", sep="") ,header = T)
 world <- ne_countries(scale = "medium", returnclass = "sf")
 ggplot(world) + geom_sf() + coord_sf(xlim = c(-25,120), ylim = c(35,80), expand = FALSE) + 
@@ -33,8 +33,7 @@ ggplot(world) + geom_sf() + coord_sf(xlim = c(-25,120), ylim = c(35,80), expand 
   theme_bw()
 dev.off()
 # decay curves
-png(file ="results/Figure2_decay_curves.png"
-    ,width = 12,height = 6,units = "in",res = 500)
+png(file =paste(DIR,"results/Figure2_decay_curves.png", sep=""),width = 12,height = 6,units = "in",res = 500)
 par(mai = c(1,1.1,0.5,0.5), mfrow=c(1,2))
 data=read.table(file = paste(DIR,"data/Figure2_Data_AnatoliaFarmer.fit", sep=""),header = F)
 jout=read.table(file = paste(DIR,"data/Figure2_Data_AnatoliaFarmer.jout", sep=""),header = F)
