@@ -4,7 +4,8 @@ rm(list=ls())
 # Figure 1: Supplement 1
 # Varying time of admixture up to 300 generations
 png("results/Figure1_Supplement1.png",width = 8, height = 6, units = 'in', res = 200) 
-data=read.table(file = "data/Figure1_Supplement1")
+DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+data=read.table(file = paste(DIR,"data/Figure1_Supplement1", sep=""))
 plot(x=data$V1,y = data$V3,col="deepskyblue",pch=15,
      xlab = "True admixture time (generations)",ylab = "Estimated admixture time (generations)",
      main = "Admixture time from DATES ",xlim=c(0,300), ylim = c(0,max(data$V3[1:30]))); grid (nx=5,ny=4)
@@ -23,7 +24,8 @@ dev.off()
 rm(list=ls())
 png("results/Figure1_Supplement2A.png",width = 7, height = 10, units = 'in', res = 200)
 par(mfrow=c(4,3))
-data=read.table(file = "data/Figure1_Supplement2A")
+DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+data=read.table(file = paste(DIR,"data/Figure1_Supplement2A", sep="") )
 kol=c("darkorange2","green3","violetred1","royalblue1","coral","yellow3","cyan2","darkgoldenrod1","darkorchid1","dodgerblue1",
       "paleturquoise4");
 len=c("n=1","n=5","n=10","n=15","n=20","n=25","n=30","n=35","n=40","n=45","n=50")
@@ -35,7 +37,6 @@ for(i in arr)
   dd=data[data$V2==i,]
   plot(x=dd$V1,y=dd$V3, col=kol[c],pch=16,xlab = "True admixture time (gen)",
        ylab = "Estimated admixture time (gen)", ylim = c(0,max(dd$V3+dd$V4))); grid ();
-  #main="varying sample size of target"
   segments(x0 =dd$V1,x1 = dd$V1,y0 =(dd$V3+dd$V4),y1 = (dd$V3-dd$V4),col=kol[c]);
   segments(x0 =dd$V1-2,x1 = dd$V1+2,y0 =(dd$V3+dd$V4),y1 = (dd$V3+dd$V4),col=kol[c]);
   segments(x0 =dd$V1-2,x1 = dd$V1+2,y0 =(dd$V3-dd$V4),y1 = (dd$V3-dd$V4),col=kol[c]);
@@ -50,7 +51,8 @@ dev.off()
 rm(list=ls())
 png("results/Figure1_Supplement2B.png",width = 6, height = 8, units = 'in', res = 200)
 par(mfrow=c(3,2))
-data=read.table(file = "data/Figure1_Supplement2B")
+DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+data=read.table(file = paste(DIR,"data/Figure1_Supplement2B", sep=""))
 kol=c("darkorange","green3","cyan2","violetred1","royalblue1")
 len1=c("reference pop size=1","reference pop size=5","reference pop size=10","reference pop size=15","reference pop size=20")
 len=c(1,5,10,15,20)
@@ -77,7 +79,8 @@ dev.off()
 #Impact of admixture proportion on the inference of (a) time of gene flow (b) estimated admixture proportion
 rm(list=ls())
 # A (Time of gene flow)
-data=read.table(file = "data/Figure1_Supplement3A")
+DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+data=read.table(file = paste(DIR,"data/Figure1_Supplement3A", sep=""))
 head(data)
 len=c("α=0.01","α=0.05","α=0.1","α=0.2","α=0.3","α=0.4","α=0.5")
 arr=c(0.01,0.05,1,2,3,4,5)
@@ -107,7 +110,8 @@ dev.off()
 rm(list=ls())
 png("results/Figure1_Supplement3B.png",width = 6, height = 10, units = 'in', res = 500)
 par(mfrow=c(4,2))
-data=read.table(file = "data/Figure1_Supplement3B")
+DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+data=read.table(file = paste(DIR,"data/Figure1_Supplement3B", sep=""))
 kol=c("green","darkorchid","yellowgreen","blue","coral","violetred2","deepskyblue","orange2","green4","red2","purple")
 len=c("α=0.01","α=0.05","α=0.1","α=0.2","α=0.3","α=0.4","α=0.5")
 arr=c(0.01,0.05,1,2,3,4,5)
@@ -137,7 +141,8 @@ dev.off()
 rm(list=ls())
 png("results/Figure1_Supplement4.png",width = 7, height = 7, units = 'in', res = 700)
 par(mfrow=c(2,2))
-data=read.table(file = "data/Figure1_Supplement4")
+DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+data=read.table(file = paste(DIR,"data/Figure1_Supplement4", sep=""))
 kol=c("darkorange","green3","cyan","violetred1","royalblue1","orangered1","darkorchid1")
 len1=c("Fst(Yoruba-Yoruba)=0.000","Fst(Yoruba-BantuKenya)=0.009",
        "Fst(Yoruba-San)=0.103")
@@ -165,7 +170,8 @@ dev.off()
 rm(list=ls())
 png("results/Figure1_Supplement5A.png",width = 7, height = 9, units = 'in', res = 700)
 par(mfrow=c(3,2))
-data=read.table(file = "data/Figure1_Supplement5A")
+DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+data=read.table(file = paste(DIR,"data/Figure1_Supplement5A", sep=""))
 len1=c("CEU/YRI", "CEU/LWK", "CEU/CHB","CEU/MXL","CEU/TSI")
 len2=c("French/Yoruba(0.154)", "French/BantuKenya(0.142)", "French/Tujia(0.110)",
        "French/Maya(0.037)","French/Italian(0.004)")
@@ -191,7 +197,8 @@ dev.off()
 
 png("results/Figure1_Supplement5B.png",width = 7, height = 9, units = 'in', res = 700)
 par(mfrow=c(3,2))
-data=read.table(file = "data/Figure1_Supplement5B")
+DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+data=read.table(file = paste(DIR,"data/Figure1_Supplement5B", sep=""))
 par(mfrow=c(3,2))
 for(i in len)
 {
@@ -217,7 +224,8 @@ dev.off()
 rm(list=ls())
 png("results/Figure1_Supplement6.png",width = 10, height = 10, units = 'in', res = 200)
 par(mfrow=c(2,2))
-data=read.table(file = "data/Figure1_Supplement6")
+DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+data=read.table(file = paste(DIR,"data/Figure1_Supplement6", sep=""))
 len=c(2,4,6,8)
 data
 par(mfrow=c(2,2))
@@ -255,7 +263,8 @@ dev.off()
 rm(list=ls())
 png("results/Figure1_Supplement7A.png",width = 9, height = 10, units = 'in', res = 700)
 par(mfrow=c(4,3))
-data=read.table(file = "data/Figure1_Supplement7A")
+DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+data=read.table(file = paste(DIR,"data/Figure1_Supplement7A", sep=""))
 kol=c("darkorange","green3","cyan","violetred1","royalblue1","orangered1","darkorchid1",
       "yellowgreen","slateblue2","tomato","palevioletred2","red","orange")
 len1=c("missing prop=10%","missing prop=15%","missing prop=20%","missing prop=25%",
@@ -285,8 +294,9 @@ dev.off()
 rm(list=ls())
 png("results/Figure1_Supplement7B.png",width = 8, height = 11, units = 'in', res = 700)
 par(mfrow=c(4,3))
-data=read.table(file = "data/Figure1_Supplement7B")
-data1=read.table(file = "data/Figure1_Supplement7C")
+DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+data=read.table(file = paste(DIR,"data/Figure1_Supplement7B", sep=""))
+data1=read.table(file = paste(DIR,"data/Figure1_Supplement7C", sep=""))
 head(data1)
 kol=c("darkorange","green3","cyan","violetred1","royalblue1","orangered1","darkorchid1","yellowgreen","slateblue2","tomato","palevioletred2")
 len1=c("missing prop=10%","missing prop=15%","missing prop=20%","missing prop=25%",
@@ -342,7 +352,8 @@ dev.off()
 rm(list=ls())
 png("results/Figure1_Supplement8A.png",width = 8, height = 11, units = 'in', res = 700)
 par(mfrow=c(3,2))
-data=read.table(file = "data/Figure1_Supplement8", header = T)
+DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+data=read.table(file = paste(DIR,"data/Figure1_Supplement8A", sep=""), header = T)
 head(data)
 str(data)
 kol=c("darkorange","darkorchid1","cyan","deeppink","orangered1","darkorchid1","yellowgreen","slateblue2","tomato","palevioletred2")
