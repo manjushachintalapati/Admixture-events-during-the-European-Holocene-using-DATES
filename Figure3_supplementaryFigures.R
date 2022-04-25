@@ -120,7 +120,6 @@ for (i in 1:nrow(dates_files))
 dates_files=read.table(file = paste(DIR,"data/Figure3_supplement1_Steppe_formation", sep=""))
 for (i in 1:nrow(dates_files)) 
 {
-  #  i=5
   file=dates_files$V1[i]
   path="~/Desktop/DATES_figures/data/Figure3_supplement1_decay_files/" ; var=paste(path,file,sep = "/")
   mm=unlist(strsplit(as.character(file),'/',fixed=TRUE))[1]
@@ -146,7 +145,6 @@ for (i in 1:nrow(dates_files))
 dates_files=read.table(file = paste(DIR,"data/Figure3_supplement1_Steppe_MLBA", sep=""))
 for (i in 1:nrow(dates_files)) 
 {
-  #  i=4
   file=dates_files$V1[i]
   path="/~/Desktop/DATES_figures/data/Figure3_supplement1_decay_files/" ; var=paste(path,file,sep = "/")
   mm=unlist(strsplit(as.character(file),'/',fixed=TRUE))[1]
@@ -199,7 +197,7 @@ dev.off()
 # Figure3- supplement2
 # Admixture dates in Iron Gates samples
 rm(list=ls());
-jpeg(file = paste(DIR,"data/Figure3_supplement2.jpeg", sep=""),width = 9,height = 6,units="in",res =1000)
+jpeg(file = paste(DIR,"results/Figure3_supplement2.jpeg", sep=""),width = 9,height = 6,units="in",res =1000)
 dd=read.table(file = paste(DIR,"data/Figure3_supplement2", sep=""))
 str(dd)
 plot(seq(1,NROW(dd$V1),1),dd$V8,col=as.character(dd$V10),pch=15, 
