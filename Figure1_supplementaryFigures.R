@@ -3,8 +3,8 @@
 rm(list=ls())
 # Figure 1: Supplement 1
 # Varying time of admixture up to 300 generations
-png("~/Desktop/figurescode_git/results/Figure1_Supplement1.png",width = 8, height = 6, units = 'in', res = 200) 
-data=read.table(file = "~/Desktop/figurescode_git/data/Figure1_Supplement1")
+png("results/Figure1_Supplement1.png",width = 8, height = 6, units = 'in', res = 200) 
+data=read.table(file = "data/Figure1_Supplement1")
 plot(x=data$V1,y = data$V3,col="deepskyblue",pch=15,
      xlab = "True admixture time (generations)",ylab = "Estimated admixture time (generations)",
      main = "Admixture time from DATES ",xlim=c(0,300), ylim = c(0,max(data$V3[1:30]))); grid (nx=5,ny=4)
@@ -21,9 +21,9 @@ dev.off()
 #Impact of sample size of (a) target population (b) reference population 
 # A (Target sample size)
 rm(list=ls())
-png("~/Desktop/figurescode_git/results/Figure1_Supplement2A.png",width = 7, height = 10, units = 'in', res = 200)
+png("results/Figure1_Supplement2A.png",width = 7, height = 10, units = 'in', res = 200)
 par(mfrow=c(4,3))
-data=read.table(file = "~/Desktop/figurescode_git/data/Figure1_Supplement2A")
+data=read.table(file = "data/Figure1_Supplement2A")
 kol=c("darkorange2","green3","violetred1","royalblue1","coral","yellow3","cyan2","darkgoldenrod1","darkorchid1","dodgerblue1",
       "paleturquoise4");
 len=c("n=1","n=5","n=10","n=15","n=20","n=25","n=30","n=35","n=40","n=45","n=50")
@@ -48,9 +48,9 @@ dev.off()
 
 # B (reference sample size)
 rm(list=ls())
-png("~/Desktop/figurescode_git/results/Figure1_Supplement2B.png",width = 6, height = 8, units = 'in', res = 200)
+png("results/Figure1_Supplement2B.png",width = 6, height = 8, units = 'in', res = 200)
 par(mfrow=c(3,2))
-data=read.table(file = "~/Desktop/figurescode_git/data/Figure1_Supplement2B")
+data=read.table(file = "data/Figure1_Supplement2B")
 kol=c("darkorange","green3","cyan2","violetred1","royalblue1")
 len1=c("reference pop size=1","reference pop size=5","reference pop size=10","reference pop size=15","reference pop size=20")
 len=c(1,5,10,15,20)
@@ -77,12 +77,12 @@ dev.off()
 #Impact of admixture proportion on the inference of (a) time of gene flow (b) estimated admixture proportion
 rm(list=ls())
 # A (Time of gene flow)
-data=read.table(file = "~/Desktop/figurescode_git/data/Figure1_Supplement3A")
+data=read.table(file = "data/Figure1_Supplement3A")
 head(data)
 len=c("α=0.01","α=0.05","α=0.1","α=0.2","α=0.3","α=0.4","α=0.5")
 arr=c(0.01,0.05,1,2,3,4,5)
 kol=c("green","darkorchid","yellowgreen","blue","deeppink","red2","purple")
-png("~/Desktop/figurescode_git/results/Figure1_Supplement3A.png",width = 6, height = 10, units = 'in', res = 200)
+png("results/Figure1_Supplement3A.png",width = 6, height = 10, units = 'in', res = 200)
 print (arr)
 par(mfrow=c(4,2))
 c=1
@@ -105,9 +105,9 @@ title("A) Admixture time inference for varying admixture proportions", line = -1
 dev.off()
 # B (Proportions of admixture)
 rm(list=ls())
-png("~/Desktop/figurescode_git/results/Figure1_Supplement3B.png",width = 6, height = 10, units = 'in', res = 500)
+png("results/Figure1_Supplement3B.png",width = 6, height = 10, units = 'in', res = 500)
 par(mfrow=c(4,2))
-data=read.table(file = "~/Desktop/figurescode_git/data/Figure1_Supplement3B")
+data=read.table(file = "data/Figure1_Supplement3B")
 kol=c("green","darkorchid","yellowgreen","blue","coral","violetred2","deepskyblue","orange2","green4","red2","purple")
 len=c("α=0.01","α=0.05","α=0.1","α=0.2","α=0.3","α=0.4","α=0.5")
 arr=c(0.01,0.05,1,2,3,4,5)
@@ -135,9 +135,9 @@ dev.off()
 # Figure 1: Supplement 4
 #Impact of divergence between the ancestral population and reference used in DATES
 rm(list=ls())
-png("~/Desktop/figurescode_git/results/Figure1_Supplement4.png",width = 7, height = 7, units = 'in', res = 700)
+png("results/Figure1_Supplement4.png",width = 7, height = 7, units = 'in', res = 700)
 par(mfrow=c(2,2))
-data=read.table(file = "~/Desktop/figurescode_git/data/Figure1_Supplement4")
+data=read.table(file = "data/Figure1_Supplement4")
 kol=c("darkorange","green3","cyan","violetred1","royalblue1","orangered1","darkorchid1")
 len1=c("Fst(Yoruba-Yoruba)=0.000","Fst(Yoruba-BantuKenya)=0.009",
        "Fst(Yoruba-San)=0.103")
@@ -163,9 +163,9 @@ dev.off()
 # Figure 1: Supplement 5
 #Impact of divergence between the two source populations that contribute to the target populations
 rm(list=ls())
-png("~/Desktop/figurescode_git/results/Figure1_Supplement5A.png",width = 7, height = 9, units = 'in', res = 700)
+png("results/Figure1_Supplement5A.png",width = 7, height = 9, units = 'in', res = 700)
 par(mfrow=c(3,2))
-data=read.table(file = "~/Desktop/figurescode_git/data/Figure1_Supplement5A")
+data=read.table(file = "data/Figure1_Supplement5A")
 len1=c("CEU/YRI", "CEU/LWK", "CEU/CHB","CEU/MXL","CEU/TSI")
 len2=c("French/Yoruba(0.154)", "French/BantuKenya(0.142)", "French/Tujia(0.110)",
        "French/Maya(0.037)","French/Italian(0.004)")
@@ -173,7 +173,6 @@ len2=c("French/Yoruba(0.154)", "French/BantuKenya(0.142)", "French/Tujia(0.110)"
 len=c("YRI","LWK","CHB","MXL","TSI")
 for(i in len)
 {
-  # i="ITU"
   dd=data[data$V1==i,]
   k=which(i==len);
   plot(x=dd$V2,y=dd$V3, col="navy",pch=19,xlab = "True admixture time (gen)",
@@ -190,13 +189,12 @@ for(i in len)
 title("Divergent ancestrals admixing to form target group (n=10)", line = -1, outer = TRUE,cex=1.3)
 dev.off()
 
-png("~/Desktop/figurescode_git/results/Figure1_Supplement5B.png",width = 7, height = 9, units = 'in', res = 700)
+png("results/Figure1_Supplement5B.png",width = 7, height = 9, units = 'in', res = 700)
 par(mfrow=c(3,2))
-data=read.table(file = "~/Desktop/figurescode_git/data/Figure1_Supplement5B")
+data=read.table(file = "data/Figure1_Supplement5B")
 par(mfrow=c(3,2))
 for(i in len)
 {
-  #i="CHB"
   dd=data[data$V1==i,]
   k=which(i==len);
   plot(x=dd$V2,y=dd$V3, col="red",pch=16,xlab = "True admixture time (gen)",
@@ -217,15 +215,14 @@ dev.off()
 # Figure 1: Supplement 6
 #Using admixed population itself as one of the reference groups in DATES
 rm(list=ls())
-png("~/Desktop/figurescode_git/results/Figure1_Supplement6.png",width = 10, height = 10, units = 'in', res = 200)
+png("results/Figure1_Supplement6.png",width = 10, height = 10, units = 'in', res = 200)
 par(mfrow=c(2,2))
-data=read.table(file = "~/Desktop/figurescode_git/data/Figure1_Supplement6")
+data=read.table(file = "data/Figure1_Supplement6")
 len=c(2,4,6,8)
 data
 par(mfrow=c(2,2))
 for(i in len)
 {
-  # i=2
   dd=data[data$V1==i,]
   k=which(i==len)
   head(dd)
@@ -233,7 +230,6 @@ for(i in len)
   
   plot(x=dd$V2,y=dd$V4, col="deepskyblue",pch=15,xlab = "True admixture time (gen)",ylab = "Estimated admixture time (gen)",
        ylim = c(0,max(data$V4+data$V5)),main=rr); grid ()
-  #main="Using admixed populations as references"
   lines(x=dd$V2,y=dd$V8, col="orange2",pch=19,type="p")
   
   segments(x0 =dd$V2,x1 = dd$V2,y0 =(dd$V4+dd$V5),y1 = (dd$V4-dd$V5),col="deepskyblue");
@@ -257,9 +253,9 @@ dev.off()
 #(c) missing data and use of pseudo-haploid genotypes for 1 target individual
 # panelA
 rm(list=ls())
-png("~/Desktop/figurescode_git/results/Figure1_Supplement7A.png",width = 9, height = 10, units = 'in', res = 700)
+png("results/Figure1_Supplement7A.png",width = 9, height = 10, units = 'in', res = 700)
 par(mfrow=c(4,3))
-data=read.table(file = "~/Desktop/figurescode_git/data/Figure1_Supplement7A")
+data=read.table(file = "data/Figure1_Supplement7A")
 kol=c("darkorange","green3","cyan","violetred1","royalblue1","orangered1","darkorchid1",
       "yellowgreen","slateblue2","tomato","palevioletred2","red","orange")
 len1=c("missing prop=10%","missing prop=15%","missing prop=20%","missing prop=25%",
@@ -287,10 +283,10 @@ dev.off()
 
 # panel B - for 10 target individuals
 rm(list=ls())
-png("~/Desktop/figurescode_git/results/Figure1_Supplement7B.png",width = 8, height = 11, units = 'in', res = 700)
+png("results/Figure1_Supplement7B.png",width = 8, height = 11, units = 'in', res = 700)
 par(mfrow=c(4,3))
-data=read.table(file = "~/Desktop/figurescode_git/data/Figure1_Supplement7B")
-data1=read.table(file = "~/Desktop/figurescode_git/data/Figure1_Supplement7C")
+data=read.table(file = "data/Figure1_Supplement7B")
+data1=read.table(file = "data/Figure1_Supplement7C")
 head(data1)
 kol=c("darkorange","green3","cyan","violetred1","royalblue1","orangered1","darkorchid1","yellowgreen","slateblue2","tomato","palevioletred2")
 len1=c("missing prop=10%","missing prop=15%","missing prop=20%","missing prop=25%",
@@ -300,7 +296,6 @@ len=c(10,15,20,25,30,35,40,45,50,55,60)
 c=1;
 for(i in len)
 {
-  # i=10
   dd=data[data$V2==i,]
   k=which(i==len);
   plot(x=dd$V1,y=dd$V3, col=kol[c],pch=16,xlab = "True admixture time (gen)",ylab = "Estimated admixture time (gen)",
@@ -316,7 +311,7 @@ title("Varying missing genotype proportions for pseudo-haploid admixed individua
 dev.off()
 
 # panel C - for 1 target individuals
-png("~/Desktop/figurescode_git/results/Figure1_Supplement7C.png",width = 8, height = 11, units = 'in', res = 700)
+png("results/Figure1_Supplement7C.png",width = 8, height = 11, units = 'in', res = 700)
 par(mfrow=c(4,3))
 kol=c("darkorange","green3","cyan","violetred1","royalblue1","orangered1","darkorchid1","yellowgreen","slateblue2","tomato","palevioletred2")
 len1=c("missing_prop=10%","missing_prop=15%","missing_prop=20%","missing_prop=25%","missing_prop=30%","missing_prop=35%","missing_prop=40%","missing_prop=45%","missing_prop=50%","missing_prop=55%","missing_prop=60%")
@@ -345,9 +340,9 @@ dev.off()
 
 # A) Target 10 individuals
 rm(list=ls())
-png("~/Desktop/figurescode_git/results/Figure1_Supplement8A.png",width = 8, height = 11, units = 'in', res = 700)
+png("results/Figure1_Supplement8A.png",width = 8, height = 11, units = 'in', res = 700)
 par(mfrow=c(3,2))
-data=read.table(file = "~/Desktop/figurescode_git/data/Figure1_Supplement8", header = T)
+data=read.table(file = "data/Figure1_Supplement8", header = T)
 head(data)
 str(data)
 kol=c("darkorange","darkorchid1","cyan","deeppink","orangered1","darkorchid1","yellowgreen","slateblue2","tomato","palevioletred2")
@@ -359,7 +354,6 @@ len=c(10,20,30,40,50,60)
 for(r in len)
 {
   c=1;
-  #r=40
   rd=data[data$missing_target==r,]
   w=which(r==len);
   
@@ -374,7 +368,6 @@ for(r in len)
   c=c+1; err=3
   for(i in rlen)
   {
-    #i=10
     dd=rd[rd$missing_ref==i,]
     k=which(i==len);
     points(x=dd$admixture_time+err,y=dd$dates_n10, col=kol[c],pch=pp[c],
@@ -392,12 +385,11 @@ title("Varying missing genotype proportions in target and references for pseudo-
 dev.off()
 
 #B) Target 1 individual
-png("~/Desktop/figurescode_git/results/Figure1_Supplement8B.png",width = 8, height = 11, units = 'in', res = 700)
+png("results/Figure1_Supplement8B.png",width = 8, height = 11, units = 'in', res = 700)
 par(mfrow=c(3,2))
 for(r in len)
 {
   c=1;
-  #r=40
   rd=data[data$missing_target==r,]
   w=which(r==len);
   
@@ -412,7 +404,6 @@ for(r in len)
   c=c+1; err=3
   for(i in rlen)
   {
-    #i=10
     dd=rd[rd$missing_ref==i,]
     k=which(i==len);
     points(x=dd$admixture_time+err,y=dd$dates_n1, col=kol[c],pch=pp[c],
