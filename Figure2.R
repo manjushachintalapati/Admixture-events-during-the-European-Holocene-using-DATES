@@ -22,9 +22,10 @@ NRMSD <- function(y, yfit,na.rm = TRUE) {
   nrmsd = sqrt(mean( (yfit - y)**2, na.rm = na.rm )) * (max(yfit, na.rm = na.rm) - min(yfit, na.rm = na.rm))**(-1)
   return(nrmsd)
 }
+DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
 # Maps 
 jpeg(file ="data/Figure2_map.jpeg",width = 12,height =6,units="in",res =1000)
-dd=read.table(file = "data/Figure2_Data_map",header = T)
+dd=read.table(file = paste(DIR,"data/Figure2_Data_map", sep="") ,header = T)
 world <- ne_countries(scale = "medium", returnclass = "sf")
 ggplot(world) + geom_sf() + coord_sf(xlim = c(-25,120), ylim = c(35,80), expand = FALSE) + 
   geom_point(data = dd, aes(x=long,y=lat),col=dd$col,inherit.aes = FALSE,pch=18,cex=4,show.legend = F) +
@@ -35,8 +36,8 @@ dev.off()
 png(file ="results/Figure2_decay_curves.png"
     ,width = 12,height = 6,units = "in",res = 500)
 par(mai = c(1,1.1,0.5,0.5), mfrow=c(1,2))
-data=read.table(file = "data/Figure2_Data_AnatoliaFarmer.fit",header = F)
-jout=read.table(file = "data/Figure2_Data_AnatoliaFarmer.jout",header = F)
+data=read.table(file = paste(DIR,"data/Figure2_Data_AnatoliaFarmer.fit", sep=""),header = F)
+jout=read.table(file = paste(DIR,"data/Figure2_Data_AnatoliaFarmer.jout", sep=""),header = F)
 plot(x=data$V1,y=data$V2,type="p",col="darkorchid",pch="*",xlim = c(0,20),xlab = "Genetic Distance(cM)",
      las=1,main = "Early Anatolian farmers",cex=2,cex.main=1.5,cex.axis=1.2,cex.lab=1.2,
      ylab ="")
@@ -48,8 +49,8 @@ len=paste(paste(paste("DATES estimate (gen)",paste(round(jout$V2,0),round(jout$V
           paste("NMRSD",nmrsd,sep="="),sep = "\n")
 legend("topright",legend = len,col = "darkorchid",lty=c(2,-1,-1), cex=1,bty='n')
 
-data=read.table(file = "data/Figure2_Data_SteppeFarmer.fit",header = F)
-jout=read.table(file = "data/Figure2_Data_SteppeFarmer.jout",header = F)
+data=read.table(file = paste(DIR,"data/Figure2_Data_SteppeFarmer.fit", sep=""),header = F)
+jout=read.table(file = paste(DIR,"data/Figure2_Data_SteppeFarmer.jout", sep=""),header = F)
 plot(x=data$V1,y=data$V2,type="p",col="deeppink",pch="*",xlim = c(0,20),xlab = "Genetic Distance(cM)",
      las=1,main = "Early Steppe Pastoralists",cex=2,cex.main=1.5,cex.axis=1.2,cex.lab=1.2,ylab="")
 title(ylab = "Ancestry covariance", mgp = c(4.2, 1, 0)) 
