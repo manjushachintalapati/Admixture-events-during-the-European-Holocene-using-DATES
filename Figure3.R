@@ -13,7 +13,7 @@ head(data)
 world <- ne_countries(scale = "medium", returnclass = "sf")
 Europe <- world[which(world$continent == "Europe"),]
 # Hunter Gatherer distribution panel
-jpeg(file = paste(DIR,"results/Figure3_map_HG_distribution.jpeg", sep=""),width = 4,height =4,units="in",res =1000)
+jpeg(file = "results/Figure3_map_HG_distribution.jpeg",width = 4,height =4,units="in",res =1000)
 dd=data[data$col=="deepskyblue",]
 ggplot(Europe) + geom_sf() + coord_sf(xlim = c(-15,40), ylim = c(35,70), expand = FALSE) + 
   geom_point(data = dd, aes(x=long,y=lat),col=dd$col,inherit.aes = FALSE,pch=dd$pc,cex=4,show.legend = F) +
@@ -21,14 +21,14 @@ ggplot(Europe) + geom_sf() + coord_sf(xlim = c(-15,40), ylim = c(35,70), expand 
   theme(plot.title = element_text(colour = "black"))
 dev.off()
 #Neolithic Farmer spread
-jpeg(file = paste(DIR,"results/Figure3_map_ANF_distribution.jpeg", sep=""),width =4,height = 4,units="in",res =1000)
+jpeg(file = "results/Figure3_map_ANF_distribution.jpeg",width =4,height = 4,units="in",res =1000)
 dd=data[data$col=="orange2",]
 ggplot(Europe) + geom_sf() + coord_sf(xlim = c(-15,40), ylim = c(35,70), expand = FALSE) + 
   geom_point(data = dd, aes(x=long,y=lat),col=dd$col,inherit.aes = FALSE,pch=dd$pc,cex=4,show.legend = F) + 
   theme(plot.title = element_text(colour = "black"))
 dev.off()
 # MLBA bronze age samples
-jpeg(file =paste(DIR,"results/Figure3_map_SP_distribution.jpeg", sep=""),width = 5,height = 4,units="in",res =1000)
+jpeg(file ="results/Figure3_map_SP_distribution.jpeg",width = 5,height = 4,units="in",res =1000)
 dd=rbind(data[data$col=="green3",],data[data$col=="lightpink2",])
 ggplot(world) + geom_sf() + coord_sf(xlim = c(-15,90), ylim = c(30,80), expand = FALSE) + 
   geom_point(data = dd, aes(x=long,y=lat),col=dd$col,inherit.aes = FALSE,pch=dd$pc,cex=3,show.legend = F) + 
@@ -36,7 +36,7 @@ ggplot(world) + geom_sf() + coord_sf(xlim = c(-15,90), ylim = c(30,80), expand =
 dev.off()
 
 # Admixture time plots 
-jpeg(file =paste(DIR,"results/Figure3_map_HG_AdmixtureDates.jpeg", sep=""),width = 16,height = 7,units="in",res =1000)
+jpeg(file ="results/Figure3_map_HG_AdmixtureDates.jpeg",width = 16,height = 7,units="in",res =1000)
 par(mai = c(1,1,0.1,3))
 data=read.table(file = "data/Figure3_data_admixturetimes")
 fossil_range=read.table(file = "data/Figure3_data_fossilages")
@@ -85,7 +85,7 @@ legend(8.9,12000,legend = c("DATES in BCE ± 1SE","Average C14 radiocarbon age")
 dev.off()
 
 # Neolithic Farmer mixture
-jpeg(file = paste(DIR,"results/Figure3_map_ANF_AdmixtureDates.jpeg", sep=""),width = 16,height = 7,units="in",res =1000)
+jpeg(file = "results/Figure3_map_ANF_AdmixtureDates.jpeg",width = 16,height = 7,units="in",res =1000)
 par(mai = c(1.4,1,0.1,0.5))
 dd=data[data$V8=="orange2",]
 target_fossil=fossil_range[fossil_range$V2%in%as.character(dd$V1),]
@@ -136,7 +136,7 @@ text(c(20.6,23.6),rep(6200,5), labels= c("Republic","Austria"),
 dev.off()
 
 # Bronze age steppe mixture
-jpeg(file = paste(DIR,"results/Figure3_map_SP_AdmixtureDates.jpeg", sep=""),width = 16,height = 7,units="in",res =1000)
+jpeg(file = "results/Figure3_map_SP_AdmixtureDates.jpeg",width = 16,height = 7,units="in",res =1000)
 par(mai = c(2.6,1,0.1,2.8))
 dd=rbind(data[data$V8=="green3",],data[data$V8=="lightpink2",])
 dd$V8=gsub("springgreen","green3",dd$V8)
