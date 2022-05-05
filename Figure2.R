@@ -24,7 +24,7 @@ NRMSD <- function(y, yfit,na.rm = TRUE) {
 }
 DIR <- "DATES_EuropeanHolocene"
 # Maps 
-jpeg(file =paste(DIR,"results/Figure2_map.jpeg", sep="") ,width = 12,height =6,units="in",res =1000)
+jpeg(file ="results/Figure2_map.jpeg",width = 12,height =6,units="in",res =1000)
 dd=read.table(file = "data/Figure2_Data_map" ,header = T)
 world <- ne_countries(scale = "medium", returnclass = "sf")
 ggplot(world) + geom_sf() + coord_sf(xlim = c(-25,120), ylim = c(35,80), expand = FALSE) + 
