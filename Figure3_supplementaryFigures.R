@@ -18,13 +18,13 @@ NRMSD <- function(y, yfit,na.rm = TRUE) {
 }
 #Usage: nmrds=round(NRMSD(data$V2,data$V3),4)
 DIR <- "DATES_EuropeanHolocene"
-admix_dates=read.table(file = paste(DIR,"data/Figure3_supplement1_admixture_dates", sep=""))
+admix_dates=read.table(file = "data/Figure3_supplement1_admixture_dates")
 head(admix_dates)
 pdf(file= paste(DIR,"results/Figure3_supplement1.pdf", sep=""),height=(6*3), width =(6*2))
 par(mfrow=c(6,4),oma=c(0,0,3.5,0))
 layout(matrix(seq(1,24,1), nrow = 6), heights=c(1,1))
 # HG decay curves
-dates_files=read.table(file = paste(DIR,"data/Figure3_supplement1_HG_curves", sep=""))
+dates_files=read.table(file = "data/Figure3_supplement1_HG_curves")
 for (i in 1:nrow(dates_files)) 
 {
   file=dates_files$V1[i]
@@ -50,8 +50,8 @@ for (i in 1:nrow(dates_files))
   legend("topright",legend = len,col = kol,bty='n',cex=0.7)
 }
 ### Farmer formation 
-data=read.table(file = paste(DIR,"data/Figure3_supplement1_decay_files/AAF.fit", sep="") ,header = F)
-jout=read.table(file = paste(DIR,"data/Figure3_supplement1_decay_files/AAF.jout", sep=""),header = F)
+data=read.table(file = "data/Figure3_supplement1_decay_files/AAF.fit")
+jout=read.table(file = "data/Figure3_supplement1_decay_files/AAF.jout")
 
 plot(x=data$V1,y=data$V2,type="p",col="darkorchid",pch="*",xlim = c(0,20),xlab = "Genetic Distance(cM)",
      las=1,main = "Early Anatolian farmers",cex=1,ylab ="")
@@ -63,7 +63,7 @@ len=paste(paste(paste("DATES estimate (gen)",paste(round(jout$V2,0),round(jout$V
           paste("NMRSD",nmrsd,sep="="),sep = "\n")
 legend("topright",legend = len,col = "darkorchid",lty=c(2,-1,-1),cex=0.7,bty='n')
 
-dates_files=read.table(file = paste(DIR,"data/Figure3_supplement1_FF_curves", sep=""))
+dates_files=read.table(file = "data/Figure3_supplement1_FF_curves")
 mt=c("Iran_N-Anatolian_N","Iran_N-Anatolian_N")
 for (i in 1:nrow(dates_files)) 
 {
@@ -90,7 +90,7 @@ for (i in 1:nrow(dates_files))
   legend("topright",legend = len,col = kol,bty='n',cex=0.7)
 }
 ### Farmer spread
-dates_files=read.table(file = paste(DIR,"data/Figure3_supplement1_Neolithic_curves", sep=""))
+dates_files=read.table(file = "data/Figure3_supplement1_Neolithic_curves")
 for (i in 1:nrow(dates_files)) 
 {
   file=dates_files$V1[i]
@@ -117,7 +117,7 @@ for (i in 1:nrow(dates_files))
 }
 
 ### Steppe formation- EBA
-dates_files=read.table(file = paste(DIR,"data/Figure3_supplement1_Steppe_formation", sep=""))
+dates_files=read.table(file = "data/Figure3_supplement1_Steppe_formation")
 for (i in 1:nrow(dates_files)) 
 {
   file=dates_files$V1[i]
@@ -142,7 +142,7 @@ for (i in 1:nrow(dates_files))
   legend("topright",legend = len,col = kol,bty='n',cex=0.7)
 }
 ### Steppe formation - MLBA
-dates_files=read.table(file = paste(DIR,"data/Figure3_supplement1_Steppe_MLBA", sep=""))
+dates_files=read.table(file = "data/Figure3_supplement1_Steppe_MLBA")
 for (i in 1:nrow(dates_files)) 
 {
   file=dates_files$V1[i]
@@ -167,7 +167,7 @@ for (i in 1:nrow(dates_files))
   legend("topright",legend = len,col = kol,bty='n',cex=0.7)
 }
 ### Steppe spread
-dates_files=read.table(file = paste(DIR,"data/Figure3_supplement1_Steppe_spread", sep="") )
+dates_files=read.table(file = "data/Figure3_supplement1_Steppe_spread")
 for (i in 1:nrow(dates_files)) 
 {
   file=dates_files$V1[i]
@@ -199,7 +199,7 @@ dev.off()
 rm(list=ls());
 DIR <- "DATES_EuropeanHolocene"
 jpeg(file = paste(DIR,"results/Figure3_supplement2.jpeg", sep=""),width = 9,height = 6,units="in",res =1000)
-dd=read.table(file = paste(DIR,"data/Figure3_supplement2", sep=""))
+dd=read.table(file = "data/Figure3_supplement2")
 str(dd)
 plot(seq(1,NROW(dd$V1),1),dd$V8,col=as.character(dd$V10),pch=15, 
      ylim =c(3000,19000),las=1, xaxt='n',xlab="",ylab="Admixture time in years BCE",
