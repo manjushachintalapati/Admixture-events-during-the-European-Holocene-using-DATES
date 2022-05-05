@@ -31,7 +31,6 @@ len1=c("missing proportion=10%","missing proportion=30%","missing proportion=60%
 len=c(10,30,60)
 c=1;
 dd=data[data$V2==10,]
-k=which(i==len);
 plot(x=dd$V1,y=dd$V3, col="tomato",pch=15,xlab = "True admixture time (gen)",ylab = "Estimated admixture time (gen)",
      ylim = c(min(dd$V3-dd$V4),max(dd$V3+dd$V4)),
      main="(B) Effect of data quality",cex.axis=1.2,cex.lab=1.2); grid ();
@@ -41,14 +40,13 @@ segments(x0 =dd$V1-2,x1 = dd$V1+2,y0 =(dd$V3+dd$V4),y1 = (dd$V3+dd$V4),col="toma
 segments(x0 =dd$V1-2,x1 = dd$V1+2,y0 =(dd$V3-dd$V4),y1 = (dd$V3-dd$V4),col="tomato");
 c=2;
 dd=data[data$V2==30,]
-k=which(i==len);
 points(x=dd$V1+2,y=dd$V3, col="darkviolet",pch=16,xlab = "True admixture time (gen)",ylab = "Estimated admixture time (gen)",
        ylim = c(min(dd$V3-dd$V4),max(dd$V3+dd$V4))); grid ();
 segments(x0 =dd$V1+2,x1 = dd$V1+2,y0 =(dd$V3+dd$V4),y1 = (dd$V3-dd$V4),col="darkviolet");
 segments(x0 =dd$V1+2-2,x1 = dd$V1+2+2,y0 =(dd$V3+dd$V4),y1 = (dd$V3+dd$V4),col="darkviolet");
 segments(x0 =dd$V1+2-2,x1 = dd$V1+2+2,y0 =(dd$V3-dd$V4),y1 = (dd$V3-dd$V4),col="darkviolet");
 dd=data[data$V2==60,]
-k=which(i==len);
+c=3
 points(x=dd$V1+4,y=dd$V3, col="forestgreen",pch=17); grid ();
 segments(x0 =dd$V1+4,x1 = dd$V1+4,y0 =(dd$V3+dd$V4),y1 = (dd$V3-dd$V4),col="forestgreen");
 segments(x0 =dd$V1+4-2,x1 = dd$V1+4+2,y0 =(dd$V3+dd$V4),y1 = (dd$V3+dd$V4),col="forestgreen");
