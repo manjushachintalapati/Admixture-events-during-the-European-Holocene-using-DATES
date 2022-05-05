@@ -25,7 +25,7 @@ lines(x=dd$admixture_time,y=dd$admixture_time,col="darkgrey",lty=2)
 legend("topleft",legend = c("n=1","n=20"),col=c("darkorange2","green3"),pch = 16,bg = "white");
 
 #panel B
-data=read.table(file = "data/Figure1_data_panelB" ,header = T)
+data=read.table(file = "data/Figure1_data_panelB")
 kol=c("tomato","darkviolet","forestgreen")
 len1=c("missing proportion=10%","missing proportion=30%","missing proportion=60%")
 len=c(10,30,60)
