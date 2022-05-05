@@ -33,7 +33,7 @@ ggplot(world) + geom_sf() + coord_sf(xlim = c(-25,120), ylim = c(35,80), expand 
   theme_bw()
 dev.off()
 # decay curves
-png(file =paste(DIR,"results/Figure2_decay_curves.png", sep=""),width = 12,height = 6,units = "in",res = 500)
+png(file ="results/Figure2_decay_curves.png",width = 12,height = 6,units = "in",res = 500)
 par(mai = c(1,1.1,0.5,0.5), mfrow=c(1,2))
 data=read.table(file = "data/Figure2_Data_AnatoliaFarmer.fit", header = F)
 jout=read.table(file = "data/Figure2_Data_AnatoliaFarmer.jout",header = F)
@@ -61,9 +61,3 @@ len=paste(paste(paste("DATES estimate (gen)",paste(round(jout$V2,0),round(jout$V
 legend("topright",legend = len,col = "deeppink",lty=c(2,-1,-1), cex=1,bty='n')
 
 dev.off()
-
-
-
-
-
-
