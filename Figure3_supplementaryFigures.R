@@ -19,7 +19,6 @@ NRMSD <- function(y, yfit,na.rm = TRUE) {
 #Usage: nmrds=round(NRMSD(data$V2,data$V3),4)
 DIR <- "DATES_EuropeanHolocene"
 admix_dates=read.table(file = "data/Figure3_supplement1_admixture_dates")
-head(admix_dates)
 pdf(file= "results/Figure3_supplement1.pdf",height=(6*3), width =(6*2))
 par(mfrow=c(6,4),oma=c(0,0,3.5,0))
 layout(matrix(seq(1,24,1), nrow = 6), heights=c(1,1))
@@ -201,7 +200,6 @@ rm(list=ls());
 DIR <- "DATES_EuropeanHolocene"
 jpeg(file = "results/Figure3_supplement2.jpeg",width = 9,height = 6,units="in",res =1000)
 dd=read.table(file = "data/Figure3_supplement2")
-str(dd)
 plot(seq(1,NROW(dd$V1),1),dd$V8,col=as.character(dd$V10),pch=15, 
      ylim =c(3000,19000),las=1, xaxt='n',xlab="",ylab="Admixture time in years BCE",
      main = "Admixture dates in Iron_Gates samples grouped by c14 age in bins of 500 years"); grid()
@@ -211,16 +209,16 @@ segments(x0 =seq(1,NROW(dd$V1),1)-0.1,x1 = seq(1,NROW(dd$V1),1)+0.1,y0 =(dd$V8+2
          y1 = (dd$V8+2*dd$V9),col=as.character(dd$V10))
 segments(x0 =seq(1,NROW(dd$V1),1)-0.1,x1 = seq(1,NROW(dd$V1),1)+0.1,y0 =(dd$V8-2*dd$V9),
          y1 = (dd$V8-2*dd$V9),col=as.character(dd$V10))
-points(seq(1,NROW(data$V1),1),data$V7)
+points(seq(1,NROW(dd$V1),1),dd$V7)
 segments(x0 =seq(1,NROW(dd$V1),1),x1 = seq(1,NROW(dd$V1),1),y0 =(dd$V2-1950),
          y1 = (dd$V3-1950))
 segments(x0 =seq(1,NROW(dd$V1),1)-0.1,x1 = seq(1,NROW(dd$V1),1)+0.1,y0 =(dd$V2-1950),
          y1 = (dd$V2-1950))
 segments(x0 =seq(1,NROW(dd$V1),1)-0.1,x1 = seq(1,NROW(dd$V1),1)+0.1,y0 =(dd$V3-1950),
          y1 = (dd$V3-1950))
-axis(1, 1:NROW(data$V1), lty = 1,col = "black",tck="y",labels = rep('', NROW(data$V1)))
-text(1:NROW(data$V1), rep(2500, NROW(data$V4)),
-     labels= gsub("IronGates-","",data$V1), col="black", srt=25, xpd=TRUE, adj=1,cex=1)
+axis(1, 1:NROW(dd$V1), lty = 1,col = "black",tck="y",labels = rep('', NROW(dd$V1)))
+text(1:NROW(dd$V1), rep(2500, NROW(dd$V4)),
+     labels= gsub("IronGates-","",dd$V1), col="black", srt=25, xpd=TRUE, adj=1,cex=1)
 legend("topright",legend = c("WHG-EHG admixture per c14 bin","WHG-EHG admixture in all samples","average c14 ages"),
        col = c("blue","cyan2","grey40"),lty=c(1,1,1),pch=c(15,15,1))
 dev.off()
