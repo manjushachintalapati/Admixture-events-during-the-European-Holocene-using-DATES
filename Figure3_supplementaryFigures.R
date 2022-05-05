@@ -37,16 +37,16 @@ for (i in 1:nrow(dates_files))
   name=gsub("estimate_","",gsub(".fit", "", file))
   len=paste("Estimate:",paste(round(estimate$V2,0),round(estimate$V5,0),sep = "+/-"),sep = " ")
   title_name=gsub("EHG_WHG_","",mm1)
-  main_t=paste("Target:",title_name,"\n","References:EHG-WHG")
+  bce=admix_dates[admix_dates$Population==title_name,]
+  main_t=paste("Target:",paste(title_name,paste(paste("(n=",bce$n,sep=""),")",sep=""),sep=" "),"\n","References:EHG-WHG")
   nmrsd=round(NRMSD(data$V2,data$V3),4)
   if(nmrsd>0.7) {kol="grey20"} else {kol="deepskyblue"};
   plot(x=data$V1,y=data$V2,type="p",col=kol,pch="*",xlim = c(0,20),xlab = "Genetic Distance(cM)",
-       ylab = "Ancestry covariance",las=1,main = main_t,cex=1)
+       ylab = "Ancestry covariance",las=1,main = main_t,cex=1,cex.main=0.8)
   lines(x=data$V1,y=data$V3,type = "l",col=kol,lty=2)
-  bce=admix_dates[admix_dates$V1==title_name,]
-  len=paste(paste(paste("DATES estimate (gen)",paste(round(estimate$V2,0),round(estimate$V5,0),sep = "±"),sep = ":"),
-                  paste("DATES estimate (BCE)",paste(bce$V9,bce$V10,sep=" ± "),sep=":"),sep = "\n"),
-            paste("NRMSD",nmrsd,sep="="),sep = "\n")
+  len=paste(paste(paste(paste("DATES estimate (gen)",paste(round(estimate$V2,0),round(estimate$V5,0),sep = "±"),sep = ":"),
+                  paste("DATES estimate (BCE)",paste(bce$DATES_mean.BCE.,bce$DATES_SE.BCE.,sep=" ± "),sep=":"),sep = "\n"),
+            paste("NRMSD",nmrsd,sep="="),sep = "\n"))
   legend("topright",legend = len,col = kol,bty='n',cex=0.7)
 }
 ### Farmer formation 
@@ -54,7 +54,8 @@ data=read.table(file = "data/Figure3_supplement1_decay_files/AAF.fit")
 jout=read.table(file = "data/Figure3_supplement1_decay_files/AAF.jout")
 
 plot(x=data$V1,y=data$V2,type="p",col="darkorchid",pch="*",xlim = c(0,20),xlab = "Genetic Distance(cM)",
-     las=1,main = "Early Anatolian farmers",cex=1,ylab ="")
+     las=1,main = paste("Target: Early Anatolian farmers (n=9)","References: Levant_pooled-Iran_N_pooled",sep="\n")
+     ,cex=1,ylab ="",cex.main=0.8)
 title(ylab = "Ancestry covariance", mgp = c(4.2, 1, 0)) 
 lines(x=data$V1,y=data$V3,type = "l",col="darkorchid",lty=2)
 nmrsd=round(NRMSD(data$V2,data$V3),4)
@@ -76,14 +77,14 @@ for (i in 1:nrow(dates_files))
   estimate=read.table(file = time)
   name=gsub("estimate_","",gsub(".fit", "", file))
   title_name=gsub("published_merged","Anatolian Farmer",gsub("Anatolia_N_Serbia_Iron_Gates_HG_","",mm1))
-  main_t=paste("Target:",title_name,"\n",mt[i])
+  bce=admix_dates[admix_dates$Population==title_name,]
+  main_t=paste("Target:",paste(title_name,paste(paste("(n=",bce$n,sep=""),")",sep=""),sep=" "),"\n",mt[i])
   len=paste("Estimate:",paste(round(estimate$V2,0),round(estimate$V5,0),sep = "+/-"),sep = " ")
   nmrsd=round(NRMSD(data$V2,data$V3),4)
   if(nmrsd>0.7) {kol="grey20"} else {kol="firebrick"};
   plot(x=data$V1,y=data$V2,type="p",col=kol,pch="*",xlim = c(0,20),xlab = "Genetic Distance(cM)",
-       ylab = "Ancestry covariance",las=1,main =main_t ,cex=1)
+       ylab = "Ancestry covariance",las=1,main =main_t ,cex=1,cex.main=0.8)
   lines(x=data$V1,y=data$V3,type = "l",col=kol,lty=1)
-  bce=admix_dates[admix_dates$V1==title_name,]
   len=paste(paste(paste("DATES estimate (gen)",paste(round(estimate$V2,0),round(estimate$V5,0),sep = "±"),sep = ":"),
                   paste("DATES estimate (BCE)",paste(bce$V9,bce$V10,sep=" ± "),sep=":"),sep = "\n"),
             paste("NRMSD",nmrsd,sep="="),sep = "\n")
@@ -102,14 +103,14 @@ for (i in 1:nrow(dates_files))
   jout=gsub("fit", "jout", file); time=paste(path,jout,sep = "/")
   estimate=read.table(file = time)
   name=gsub("estimate_","",gsub(".fit", "", file))
-  main_t=paste("Target:",mm1,"\n","References:",gsub("Turkey_N","AnatolianN",refm))
+  bce=admix_dates[admix_dates$Population==mm1,]
+  main_t=paste("Target:",paste(mm1,paste(paste("(n=",bce$n,sep=""),")",sep=""),sep=" "),"\n","References:",gsub("Turkey_N","AnatolianN",refm))
   len=paste("Estimate:",paste(round(estimate$V2,0),round(estimate$V5,0),sep = "+/-"),sep = " ")
   nmrsd=round(NRMSD(data$V2,data$V3),4)
   if(nmrsd>0.7) {kol="grey20"} else {kol="orange2"};
   plot(x=data$V1,y=data$V2,type="p",col=kol,pch="*",xlim = c(0,20),xlab = "Genetic Distance(cM)",
-       ylab = "Ancestry covariance",las=1,main = main_t,cex=1)
+       ylab = "Ancestry covariance",las=1,main = main_t,cex=1,cex.main=0.8)
   lines(x=data$V1,y=data$V3,type = "l",col=kol,lty=1)
-  bce=admix_dates[admix_dates$V1==mm1,]
   len=paste(paste(paste("DATES estimate (gen)",paste(round(estimate$V2,0),round(estimate$V5,0),sep = "±"),sep = ":"),
                   paste("DATES estimate (BCE)",paste(bce$V9,bce$V10,sep=" ± "),sep=":"),sep = "\n"),
             paste("NRMSD",nmrsd,sep="="),sep = "\n")
@@ -128,14 +129,14 @@ for (i in 1:nrow(dates_files))
   jout=gsub("fit", "jout", file); time=paste(path,jout,sep = "/")
   estimate=read.table(file = time)
   name=gsub("estimate_","",gsub(".fit", "", file))
-  main_t=gsub("_pub","",paste("Target:",mm1,"\n","References:Iran_N_pooled-EHG_pooled"))
+  bce=admix_dates[admix_dates$Population==mm1,]
+  main_t=gsub("_pub","",paste("Target:",paste(mm1,paste(paste("(n=",bce$n,sep=""),")",sep=""),sep=" "),"\n","References:Iran_N_pooled-EHG_pooled"))
   len=paste("Estimate:",paste(round(estimate$V2,0),round(estimate$V5,0),sep = "+/-"),sep = " ")
   nmrsd=round(NRMSD(data$V2,data$V3),4)
   if(nmrsd>0.7) {kol="grey20"} else {kol="deeppink"};
   plot(x=data$V1,y=data$V2,type="p",col=kol,pch="*",xlim = c(0,20),xlab = "Genetic Distance(cM)",
-       ylab = "Ancestry covariance",las=1,main = main_t,cex=1.2)
+       ylab = "Ancestry covariance",las=1,main = main_t,cex=1.2,cex.main=0.8)
   lines(x=data$V1,y=data$V3,type = "l",col=kol,lty=1)
-  bce=admix_dates[admix_dates$V1==mm1,]
   len=paste(paste(paste("DATES estimate (gen)",paste(round(estimate$V2,0),round(estimate$V5,0),sep = "±"),sep = ":"),
                   paste("DATES estimate (BCE)",paste(bce$V9,bce$V10,sep=" ± "),sep=":"),sep = "\n"),
             paste("NRMSD",nmrsd,sep="="),sep = "\n")
@@ -153,14 +154,14 @@ for (i in 1:nrow(dates_files))
   jout=gsub("fit", "jout", file); time=paste(path,jout,sep = "/")
   estimate=read.table(file = time)
   name=gsub("estimate_","",gsub(".fit", "", file))
-  main_t=paste("Target:",mm1,"\n","References:Steppe EBA-Neolithic groups")
+  bce=admix_dates[admix_dates$Population==mm1,]
+  main_t=paste("Target:",paste(mm1,paste(paste("(n=",bce$n,sep=""),")",sep=""),sep=" "),"\n","References:Steppe EBA-Neolithic groups")
   len=paste("Estimate:",paste(round(estimate$V2,0),round(estimate$V5,0),sep = "+/-"),sep = " ")
   nmrsd=round(NRMSD(data$V2,data$V3),4)
   if(nmrsd>0.7) {kol="grey20"} else {kol="lightpink"};
   plot(x=data$V1,y=data$V2,type="p",col=kol,pch="*",xlim = c(0,20),xlab = "Genetic Distance(cM)",
-       ylab = "Ancestry covariance",las=1,main = main_t,cex=1)
+       ylab = "Ancestry covariance",las=1,main = main_t,cex=1,cex.main=0.8)
   lines(x=data$V1,y=data$V3,type = "l",col=kol,lty=1)
-  bce=admix_dates[admix_dates$V1==mm1,]
   len=paste(paste(paste("DATES estimate (gen)",paste(round(estimate$V2,0),round(estimate$V5,0),sep = "±"),sep = ":"),
                   paste("DATES estimate (BCE)",paste(bce$V9,bce$V10,sep=" ± "),sep=":"),sep = "\n"),
             paste("NRMSD",nmrsd,sep="="),sep = "\n")
@@ -179,18 +180,18 @@ for (i in 1:nrow(dates_files))
   estimate=read.table(file = time)
   name=gsub("estimate_","",gsub(".fit", "", file))
   title_name=gsub("Afanasievo_Anatolia_N_","",mm1)
-  main_t=paste("Target:",title_name,"\n","References:Steppe groups-(WHG+AnatoliaN)")
+  bce=admix_dates[admix_dates$Population==title_name,]
+  main_t=paste("Target:",paste(mm1,paste(paste("(n=",bce$n,sep=""),")",sep=""),sep=" "),"\n","References:Steppe groups-(WHG+AnatoliaN)")
   len=paste("Estimate:",paste(round(estimate$V2,0),round(estimate$V5,0),sep = "+/-"),sep = " ")
   nmrsd=round(NRMSD(data$V2,data$V3),4)
   if(nmrsd>0.7) {kol="grey20"} else {kol="green3"};
   plot(x=data$V1,y=data$V2,type="p",col=kol,pch="*",xlim = c(0,20),xlab = "Genetic Distance(cM)",
-       ylab = "Ancestry covariance",las=1,main = main_t,cex=1)
+       ylab = "Ancestry covariance",las=1,main = main_t,cex=1,cex.main=0.7)
   lines(x=data$V1,y=data$V3,type = "l",col=kol,lty=1)
-  bce=admix_dates[admix_dates$V1==title_name,]
   len=paste(paste(paste("DATES estimate (gen)",paste(round(estimate$V2,0),round(estimate$V5,0),sep = "±"),sep = ":"),
                   paste("DATES estimate (BCE)",paste(bce$V9,bce$V10,sep=" ± "),sep=":"),sep = "\n"),
             paste("NRMSD",nmrsd,sep="="),sep = "\n")
-  legend("topright",legend = len,col = kol,bty='n',cex=0.7)
+  legend("topright",legend = len,col = kol,bty='n',cex=0.8)
 }
 dev.off()
 
