@@ -41,7 +41,6 @@ data=read.table(file = "data/Figure3_data_admixturetimes")
 fossil_range=read.table(file = "data/Figure3_data_fossilages")
 # Hunter Gatherer mixture panel
 dd=rbind(data[data$V8=="deepskyblue",])
-max(dd$V2); min(dd$V2)
 target_fossil=fossil_range[fossil_range$V2%in%as.character(dd$V1),]
 group_names=unique(target_fossil$V2)
 target_fossil$V2 <- as.character(target_fossil$V2)
@@ -53,7 +52,6 @@ for(i in group_names)
   dd[k,10]=max((as.numeric(target_fossil[target_fossil$V2==i,]$V6)))
   dd[k,11]=mean(as.numeric(target_fossil[target_fossil$V2==i,]$V6))
 }
-min(dd$V9)
 plot(x=seq(1,length(dd$V1),1),y=dd$V6,type = "p",
      col=as.character(dd$V8),pch=20,cex=2, ylim = c(4000,12200), xlim = c(0.5,length(dd$V1)+0.5),
      xaxt='n',yaxt='n',xlab = "",ylab = "Estimated admixture time (BCE)", main="");
@@ -95,7 +93,6 @@ for(i in group_names)
   dd[k,10]=max((as.numeric(target_fossil[target_fossil$V2==i,]$V6)))
   dd[k,11]=mean(as.numeric(target_fossil[target_fossil$V2==i,]$V6))
 }
-max(dd$V6+dd$V7)
 plot(x=seq(1,length(dd$V1),1),y=dd$V6,type = "p",
      col=as.character(dd$V8),pch=20,cex=2, ylim = c(2000,6800), xlim = c(1,length(dd$V1)+0.5),
      xaxt='n',yaxt='n',xlab = "",ylab = "Estimated admixture time (BCE)", main="");
