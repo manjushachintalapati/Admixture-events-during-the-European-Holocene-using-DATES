@@ -22,7 +22,7 @@ NRMSD <- function(y, yfit,na.rm = TRUE) {
   nrmsd = sqrt(mean( (yfit - y)**2, na.rm = na.rm )) * (max(yfit, na.rm = na.rm) - min(yfit, na.rm = na.rm))**(-1)
   return(nrmsd)
 }
-DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+DIR <- "DATES_EuropeanHolocene"
 # Maps 
 jpeg(file =paste(DIR,"results/Figure2_map.jpeg", sep="") ,width = 12,height =6,units="in",res =1000)
 dd=read.table(file = paste(DIR,"data/Figure2_Data_map", sep="") ,header = T)
