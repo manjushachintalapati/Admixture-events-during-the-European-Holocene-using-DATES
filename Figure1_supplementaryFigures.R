@@ -26,7 +26,7 @@ rm(list=ls())
 DIR <- "DATES_EuropeanHolocene"
 png("results/Figure 1 - figure supplement 2A.png",width = 7, height = 10, units = 'in', res = 200)
 par(mfrow=c(4,3))
-data=read.table(file = paste(DIR,"data/Figure1_Supplement2A", sep="/") )
+data=read.table(file = "data/Figure1_Supplement2A")
 kol=c("darkorange2","green3","violetred1","royalblue1","coral","yellow3","cyan2","darkgoldenrod1","darkorchid1","dodgerblue1",
       "paleturquoise4");
 len=c("n=1","n=5","n=10","n=15","n=20","n=25","n=30","n=35","n=40","n=45","n=50")
