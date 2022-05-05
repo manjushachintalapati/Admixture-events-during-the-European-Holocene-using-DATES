@@ -28,7 +28,7 @@ dates_files=read.table(file = "data/Figure3_supplement1_HG_curves")
 for (i in 1:nrow(dates_files)) 
 {
   file=dates_files$V1[i]
-  path=paste(DIR,"data/Figure3_supplement1_decay_files/", sep=""); var=paste(path,file,sep = "/")
+  path="data/Figure3_supplement1_decay_files/"; var=paste(path,file,sep = "/")
   mm=unlist(strsplit(as.character(file),'/',fixed=TRUE))[1]
   mm1=unlist(strsplit(as.character(mm),'.',fixed=TRUE))[1]
   data=read.table(file = var)
@@ -68,7 +68,7 @@ mt=c("Iran_N-Anatolian_N","Iran_N-Anatolian_N")
 for (i in 1:nrow(dates_files)) 
 {
   file=dates_files$V1[i]
-  path="~/Desktop/DATES_figures/data/Figure3_supplement1_decay_files/" ; var=paste(path,file,sep = "/")
+  path="data/Figure3_supplement1_decay_files" ; var=paste(path,file,sep = "/")
   mm=unlist(strsplit(as.character(file),'/',fixed=TRUE))[1]
   mm1=unlist(strsplit(as.character(mm),'-',fixed=TRUE))[1]
   data=read.table(file = var)
@@ -94,7 +94,7 @@ dates_files=read.table(file = "data/Figure3_supplement1_Neolithic_curves")
 for (i in 1:nrow(dates_files)) 
 {
   file=dates_files$V1[i]
-  path="~/Desktop/DATES_figures/data/Figure3_supplement1_decay_files/" ; var=paste(path,file,sep = "/")
+  path="data/Figure3_supplement1_decay_files" ; var=paste(path,file,sep = "/")
   mm=unlist(strsplit(as.character(file),'/',fixed=TRUE))[1]
   mm1=unlist(strsplit(as.character(mm),'-',fixed=TRUE))[1]
   refm=paste(unlist(strsplit(as.character(mm),'-',fixed=TRUE))[2],"-",unlist(strsplit(as.character(mm),'-',fixed=TRUE))[3])
@@ -121,7 +121,7 @@ dates_files=read.table(file = "data/Figure3_supplement1_Steppe_formation")
 for (i in 1:nrow(dates_files)) 
 {
   file=dates_files$V1[i]
-  path="~/Desktop/DATES_figures/data/Figure3_supplement1_decay_files/" ; var=paste(path,file,sep = "/")
+  path="data/Figure3_supplement1_decay_files" ; var=paste(path,file,sep = "/")
   mm=unlist(strsplit(as.character(file),'/',fixed=TRUE))[1]
   mm1=unlist(strsplit(as.character(mm),'-',fixed=TRUE))[1]
   data=read.table(file = var)
@@ -146,7 +146,7 @@ dates_files=read.table(file = "data/Figure3_supplement1_Steppe_MLBA")
 for (i in 1:nrow(dates_files)) 
 {
   file=dates_files$V1[i]
-  path="/~/Desktop/DATES_figures/data/Figure3_supplement1_decay_files/" ; var=paste(path,file,sep = "/")
+  path="data/Figure3_supplement1_decay_files" ; var=paste(path,file,sep = "/")
   mm=unlist(strsplit(as.character(file),'/',fixed=TRUE))[1]
   mm1=unlist(strsplit(as.character(mm),'-',fixed=TRUE))[1]
   data=read.table(file = var)
@@ -171,7 +171,7 @@ dates_files=read.table(file = "data/Figure3_supplement1_Steppe_spread")
 for (i in 1:nrow(dates_files)) 
 {
   file=dates_files$V1[i]
-  path="~/Desktop/DATES_figures/data/Figure3_supplement1_decay_files/" ; var=paste(path,file,sep = "/")
+  path="data/Figure3_supplement1_decay_files/" ; var=paste(path,file,sep = "/")
   mm=unlist(strsplit(as.character(file),'/',fixed=TRUE))[1]
   mm1=unlist(strsplit(as.character(mm),'-',fixed=TRUE))[1]
   data=read.table(file = var)
@@ -198,7 +198,7 @@ dev.off()
 # Admixture dates in Iron Gates samples
 rm(list=ls());
 DIR <- "DATES_EuropeanHolocene"
-jpeg(file = paste(DIR,"results/Figure3_supplement2.jpeg", sep=""),width = 9,height = 6,units="in",res =1000)
+jpeg(file = "results/Figure3_supplement2.jpeg",width = 9,height = 6,units="in",res =1000)
 dd=read.table(file = "data/Figure3_supplement2")
 str(dd)
 plot(seq(1,NROW(dd$V1),1),dd$V8,col=as.character(dd$V10),pch=15, 
