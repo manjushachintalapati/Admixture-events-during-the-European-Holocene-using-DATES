@@ -20,7 +20,7 @@ NRMSD <- function(y, yfit,na.rm = TRUE) {
 DIR <- "DATES_EuropeanHolocene"
 admix_dates=read.table(file = "data/Figure3_supplement1_admixture_dates")
 head(admix_dates)
-pdf(file= paste(DIR,"results/Figure3_supplement1.pdf", sep=""),height=(6*3), width =(6*2))
+pdf(file= "results/Figure3_supplement1.pdf",height=(6*3), width =(6*2))
 par(mfrow=c(6,4),oma=c(0,0,3.5,0))
 layout(matrix(seq(1,24,1), nrow = 6), heights=c(1,1))
 # HG decay curves
