@@ -23,6 +23,7 @@ dev.off()
 #Impact of sample size of (a) target population (b) reference population 
 # A (Target sample size)
 rm(list=ls())
+DIR <- "DATES_EuropeanHolocene"
 png("results/Figure 1 - figure supplement 2A.png",width = 7, height = 10, units = 'in', res = 200)
 par(mfrow=c(4,3))
 data=read.table(file = paste(DIR,"data/Figure1_Supplement2A", sep="") )
@@ -48,7 +49,6 @@ title("(A) Effect of sample size of target population", line = -1.5, outer = TRU
 dev.off()
 
 # B (reference sample size)
-rm(list=ls())
 png("results/Figure 1 - figure supplement 2B.png",width = 6, height = 8, units = 'in', res = 200)
 par(mfrow=c(3,2))
 data=read.table(file = paste(DIR,"data/Figure1_Supplement2B", sep=""))
@@ -59,7 +59,6 @@ par(mfrow=c(3,2))
 c=1;
 for(i in len)
 {
-  #len=1
   k=which(i==len);
   dd=data[data$V1==i,]
   plot(x=dd$V2,y=dd$V3, col=kol[c],pch=17,xlab = "True admixture time (gen)",
@@ -78,6 +77,7 @@ dev.off()
 #Impact of admixture proportion on the inference of (a) time of gene flow (b) estimated admixture proportion
 # A (Time of gene flow)
 rm(list=ls())
+DIR <- "DATES_EuropeanHolocene"
 data=read.table(file = paste(DIR,"data/Figure1_Supplement3A", sep=""))
 head(data)
 len=c("α=0.01","α=0.05","α=0.1","α=0.2","α=0.3","α=0.4","α=0.5")
@@ -132,6 +132,8 @@ dev.off()
 
 # Figure 1: Supplement 4
 #Impact of divergence between the ancestral population and reference used in DATES
+rm(list=ls())
+DIR <- "DATES_EuropeanHolocene"
 png("results/Figure 1 - figure supplement 4.png",width = 9, height = 9, units = 'in', res = 700)
 par(mfrow=c(2,2))
 data=read.table(file = paste(DIR,"data/Figure1_Supplement4", sep=""))
@@ -157,6 +159,8 @@ dev.off()
 
 # Figure 1: Supplement 5
 #Impact of divergence between the two source populations that contribute to the target populations
+rm(list=ls())
+DIR <- "DATES_EuropeanHolocene"
 png("results/Figure 1 - figure supplement 5A.png",width = 7, height = 9, units = 'in', res = 700)
 par(mfrow=c(3,2))
 data=read.table(file = paste(DIR,"data/Figure1_Supplement5A", sep=""))
@@ -206,6 +210,8 @@ dev.off()
 
 # Figure 1: Supplement 6
 #Using admixed population itself as one of the reference groups in DATES
+rm(list=ls())
+DIR <- "DATES_EuropeanHolocene"
 png("results/Figure 1 - figure supplement 6.png",
     width = 11, height = 11, units = 'in', res = 200)
 par(mfrow=c(2,2))
@@ -244,6 +250,8 @@ dev.off()
 #Impact of features of ancient DNA (a) missing rate (b) missing data and use of pseudo-haploid genotypes 
 #(c) missing data and use of pseudo-haploid genotypes for 1 target individual
 # panelA
+rm(list=ls())
+DIR <- "DATES_EuropeanHolocene"
 png("results/Figure 1 - figure supplement 7A.png",width = 9, height = 10, units = 'in', res = 700)
 par(mfrow=c(4,3))
 data=read.table(file = paste(DIR,"data/Figure1_Supplement7A", sep=""))
@@ -328,6 +336,8 @@ dev.off()
 ###### Figure1 supplement 8
 # Impact of sample size and data quality of target and reference populations as a function of divergence between true and reference populations used in DATES
 # for 10 individuals
+rm(list=ls())
+DIR <- "DATES_EuropeanHolocene"
 png("results/Figure 1 - figure supplement 8A.png",width = 10, height = 10, units = 'in', res = 700)
 par(mfrow=c(3,3))
 data=read.table(file = paste(DIR,"data/Figure1_Supplement8A", sep=""),header=T)
