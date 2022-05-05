@@ -17,7 +17,7 @@ NRMSD <- function(y, yfit,na.rm = TRUE) {
   return(nrmsd)
 }
 #Usage: nmrds=round(NRMSD(data$V2,data$V3),4)
-DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+DIR <- "DATES_EuropeanHolocene"
 admix_dates=read.table(file = paste(DIR,"data/Figure3_supplement1_admixture_dates", sep=""))
 head(admix_dates)
 pdf(file= paste(DIR,"results/Figure3_supplement1.pdf", sep=""),height=(6*3), width =(6*2))
@@ -197,6 +197,7 @@ dev.off()
 # Figure3- supplement2
 # Admixture dates in Iron Gates samples
 rm(list=ls());
+DIR <- "DATES_EuropeanHolocene"
 jpeg(file = paste(DIR,"results/Figure3_supplement2.jpeg", sep=""),width = 9,height = 6,units="in",res =1000)
 dd=read.table(file = paste(DIR,"data/Figure3_supplement2", sep=""))
 str(dd)
