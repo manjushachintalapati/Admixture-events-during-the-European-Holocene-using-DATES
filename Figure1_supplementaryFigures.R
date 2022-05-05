@@ -6,7 +6,7 @@ DIR <- "DATES_EuropeanHolocene"
 # Figure 1 supplement1
 #variation in admixture time
 png("results/Figure 1 - figure supplement 1.png",width = 8, height = 6, units = 'in', res = 200) 
-data=read.table(file = paste(DIR,"data/Figure1_Supplement1", sep="/"))
+data=read.table(file = "data/Figure1_Supplement1")
 plot(x=data$V1,y = data$V3,col="deepskyblue",pch=15,
      xlab = "True admixture time (generations)",ylab = "Estimated admixture time (generations)",
      main = "Varying time of admixture up to 300 generations",xlim=c(0,300), ylim = c(0,max(data$V3[1:30]))); grid (nx=5,ny=4)
@@ -51,7 +51,7 @@ dev.off()
 # B (reference sample size)
 png("results/Figure 1 - figure supplement 2B.png",width = 6, height = 8, units = 'in', res = 200)
 par(mfrow=c(3,2))
-data=read.table(file = paste(DIR,"data/Figure1_Supplement2B", sep="/"))
+data=read.table(file = "data/Figure1_Supplement2B")
 kol=c("darkorange","green3","cyan2","violetred1","royalblue1")
 len1=c("reference pop size=1","reference pop size=5","reference pop size=10","reference pop size=15","reference pop size=20")
 len=c(1,5,10,15,20)
@@ -78,7 +78,7 @@ dev.off()
 # A (Time of gene flow)
 rm(list=ls())
 DIR <- "DATES_EuropeanHolocene"
-data=read.table(file = paste(DIR,"data/Figure1_Supplement3A", sep="/"))
+data=read.table(file = "data/Figure1_Supplement3A")
 head(data)
 len=c("α=0.01","α=0.05","α=0.1","α=0.2","α=0.3","α=0.4","α=0.5")
 arr=c(0.01,0.05,1,2,3,4,5)
@@ -106,7 +106,7 @@ dev.off()
 # B (Proportions of admixture)
 png("results/Figure 1 - figure supplement 3B.png",width = 6, height = 10, units = 'in', res = 500)
 par(mfrow=c(4,2))
-data=read.table(file = paste(DIR,"data/Figure1_Supplement3B", sep="/"))
+data=read.table(file = "data/Figure1_Supplement3B")
 kol=c("green","darkorchid","yellowgreen","blue","coral","violetred2","deepskyblue","orange2","green4","red2","purple")
 len=c("α=0.01","α=0.05","α=0.1","α=0.2","α=0.3","α=0.4","α=0.5")
 arr=c(0.01,0.05,1,2,3,4,5)
@@ -136,7 +136,7 @@ rm(list=ls())
 DIR <- "DATES_EuropeanHolocene"
 png("results/Figure 1 - figure supplement 4.png",width = 9, height = 9, units = 'in', res = 700)
 par(mfrow=c(2,2))
-data=read.table(file = paste(DIR,"data/Figure1_Supplement4", sep="/"))
+data=read.table(file = "data/Figure1_Supplement4")
 kol=c("darkorange","green3","cyan","violetred1")
 len1=c("Fst(Yoruba-Yoruba)=0.000","Fst(Yoruba-BantuKenya)=0.009",
        "Fst(Yoruba-San)=0.103")
@@ -163,7 +163,7 @@ rm(list=ls())
 DIR <- "DATES_EuropeanHolocene"
 png("results/Figure 1 - figure supplement 5A.png",width = 7, height = 9, units = 'in', res = 700)
 par(mfrow=c(3,2))
-data=read.table(file = paste(DIR,"data/Figure1_Supplement5A", sep="/"))
+data=read.table(file = "data/Figure1_Supplement5A")
 len1=c("CEU/YRI", "CEU/LWK", "CEU/CHB","CEU/MXL","CEU/TSI")
 len2=c("French/Yoruba(0.154)", "French/BantuKenya(0.142)", "French/Tujia(0.110)",
        "French/Maya(0.037)","French/Italian(0.004)")
@@ -188,7 +188,7 @@ dev.off()
 
 png("results/Figure 1 - figure supplement 5B.png",width = 7, height = 9, units = 'in', res = 700)
 par(mfrow=c(3,2))
-data=read.table(file = paste(DIR,"data/Figure1_Supplement5B", sep="/"))
+data=read.table(file = "data/Figure1_Supplement5B")
 par(mfrow=c(3,2))
 for(i in len)
 {
@@ -215,7 +215,7 @@ DIR <- "DATES_EuropeanHolocene"
 png("results/Figure 1 - figure supplement 6.png",
     width = 11, height = 11, units = 'in', res = 200)
 par(mfrow=c(2,2))
-data=read.table(file = paste(DIR,"data/Figure1_Supplement6", sep="/"))
+data=read.table(file = "data/Figure1_Supplement6")
 len=c(2,4,6,8)
 a=c("A","B","C","D")
 data
@@ -254,7 +254,7 @@ rm(list=ls())
 DIR <- "DATES_EuropeanHolocene"
 png("results/Figure 1 - figure supplement 7A.png",width = 9, height = 10, units = 'in', res = 700)
 par(mfrow=c(4,3))
-data=read.table(file = paste(DIR,"data/Figure1_Supplement7A", sep="/"))
+data=read.table(file = "data/Figure1_Supplement7A")
 kol=c("darkorange","green3","cyan","violetred1","royalblue1","orangered1","darkorchid1",
       "yellowgreen","slateblue2","tomato","palevioletred2","red","orange")
 len1=c("missing prop=10%","missing prop=15%","missing prop=20%","missing prop=25%",
@@ -284,8 +284,8 @@ dev.off()
 # panel B -Pseudo-haploid genotypes with missing data for n=10 admixed individuals
 png("results/Figure 1 - figure supplement 7B.png",width = 8, height = 11, units = 'in', res = 700)
 par(mfrow=c(4,3))
-data=read.table(file = paste(DIR,"data/Figure1_Supplement7B", sep="/"))
-data1=read.table(file = paste(DIR,"data/Figure1_Supplement7C", sep="/"))
+data=read.table(file = "data/Figure1_Supplement7B")
+data1=read.table(file = "data/Figure1_Supplement7C")
 head(data1)
 kol=c("darkorange","green3","cyan","violetred1","royalblue1","orangered1","darkorchid1","yellowgreen","slateblue2","tomato","palevioletred2")
 len1=c("missing prop=10%","missing prop=15%","missing prop=20%","missing prop=25%",
@@ -340,7 +340,7 @@ rm(list=ls())
 DIR <- "DATES_EuropeanHolocene"
 png("results/Figure 1 - figure supplement 8A.png",width = 10, height = 10, units = 'in', res = 700)
 par(mfrow=c(3,3))
-data=read.table(file = paste(DIR,"data/Figure1_Supplement8A", sep="/"),header=T)
+data=read.table(file = "data/Figure1_Supplement8A",header=T)
 kol=c("darkorange","darkorchid1","cyan","deeppink")
 ref_used=c("FY","FB","FS")
 len1=c("Reference missing prop=0%","Reference missing prop=20%","Reference missing prop=40%")
@@ -384,7 +384,7 @@ dev.off()
 png("results/Figure 1 - figure supplement 8B.png",
     width = 10, height = 10, units = 'in', res = 700)
 par(mfrow=c(3,3))
-data=read.table(file = paste(DIR,"data/Figure1_Supplement8B", sep="/"),header=T)
+data=read.table(file = "data/Figure1_Supplement8B",header=T)
 kol=c("darkorange","darkorchid1","cyan","deeppink")
 ref_used=c("FY","FB","FS")
 len1=c("Reference missing prop=0%","Reference missing prop=20%","Reference missing prop=40%")
