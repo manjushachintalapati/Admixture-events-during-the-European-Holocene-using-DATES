@@ -9,7 +9,6 @@ library(rnaturalearthdata)
 library(rgeos)
 DIR <- "DATES_EuropeanHolocene"
 data=read.table(file = "data/Figure3_data_map",header = T)
-head(data)
 world <- ne_countries(scale = "medium", returnclass = "sf")
 Europe <- world[which(world$continent == "Europe"),]
 # Hunter Gatherer distribution panel
@@ -42,11 +41,9 @@ data=read.table(file = "data/Figure3_data_admixturetimes")
 fossil_range=read.table(file = "data/Figure3_data_fossilages")
 # Hunter Gatherer mixture panel
 dd=rbind(data[data$V8=="deepskyblue",])
-head(dd)
 max(dd$V2); min(dd$V2)
 target_fossil=fossil_range[fossil_range$V2%in%as.character(dd$V1),]
 group_names=unique(target_fossil$V2)
-head(target_fossil)
 target_fossil$V2 <- as.character(target_fossil$V2)
 target_fossil$V6 <- as.numeric(as.character(target_fossil$V3))-1950
 for(i in group_names)
@@ -56,7 +53,6 @@ for(i in group_names)
   dd[k,10]=max((as.numeric(target_fossil[target_fossil$V2==i,]$V6)))
   dd[k,11]=mean(as.numeric(target_fossil[target_fossil$V2==i,]$V6))
 }
-head(dd)
 min(dd$V9)
 plot(x=seq(1,length(dd$V1),1),y=dd$V6,type = "p",
      col=as.character(dd$V8),pch=20,cex=2, ylim = c(4000,12200), xlim = c(0.5,length(dd$V1)+0.5),
@@ -90,7 +86,6 @@ par(mai = c(1.4,1,0.1,0.5))
 dd=data[data$V8=="orange2",]
 target_fossil=fossil_range[fossil_range$V2%in%as.character(dd$V1),]
 group_names=unique(target_fossil$V2)
-head(target_fossil)
 target_fossil$V2 <- as.character(target_fossil$V2)
 target_fossil$V6 <- as.numeric(as.character(target_fossil$V3))-1950
 for(i in group_names)
@@ -142,7 +137,6 @@ dd=rbind(data[data$V8=="green3",],data[data$V8=="lightpink2",])
 dd$V8=gsub("springgreen","green3",dd$V8)
 target_fossil=fossil_range[fossil_range$V2%in%as.character(dd$V1),]
 group_names=unique(target_fossil$V2)
-head(target_fossil)
 target_fossil$V2 <- as.character(target_fossil$V2)
 target_fossil$V6 <- as.numeric(as.character(target_fossil$V3))-1950
 pch_str=as.numeric(dd$V9)
