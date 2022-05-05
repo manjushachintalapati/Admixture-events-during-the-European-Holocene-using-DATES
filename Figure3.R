@@ -7,7 +7,7 @@ require(ggrepel)
 library(rnaturalearth)
 library(rnaturalearthdata)
 library(rgeos)
-DIR <- "Admixture-events-during-the-European-Holocene-using-DATES"
+DIR <- "DATES_EuropeanHolocene"
 data=read.table(file = paste(DIR,"data/Figure3_data_map", sep=""),header = T)
 head(data)
 world <- ne_countries(scale = "medium", returnclass = "sf")
