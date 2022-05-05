@@ -79,7 +79,6 @@ dev.off()
 rm(list=ls())
 DIR <- "DATES_EuropeanHolocene"
 data=read.table(file = "data/Figure1_Supplement3A")
-head(data)
 len=c("α=0.01","α=0.05","α=0.1","α=0.2","α=0.3","α=0.4","α=0.5")
 arr=c(0.01,0.05,1,2,3,4,5)
 kol=c("green","darkorchid","yellowgreen","blue","deeppink","red2","purple")
@@ -224,7 +223,6 @@ for(i in len)
 {
   dd=data[data$V1==i,]
   k=which(i==len)
-  head(dd)
   rr=paste("(",paste(a[k],paste("Admixed pop (as target and reference):",i*10,"%CEU+",(10-i)*10,"%YRI"),sep=") "),sep="")
   
   plot(x=dd$V2,y=dd$V4, col="deepskyblue",pch=15,xlab = "True admixture time (gen)",
@@ -266,7 +264,6 @@ for(i in len)
 {
   dd=data[data$V2==i,]
   k=which(i==len);
-  dd1=data_alder[data_alder$V2==i,]
   plot(x=dd$V1,y=dd$V3, col=kol[k],pch=17,xlab = "True admixture time (gen)",ylab = "Estimated admixture time (gen)",
        ylim = c(0,220)); grid ();
   lines(x=dd$V1,y=dd$V5, col=dd$V8,pch=6,type="p")
@@ -286,7 +283,6 @@ png("results/Figure 1 - figure supplement 7B.png",width = 8, height = 11, units 
 par(mfrow=c(4,3))
 data=read.table(file = "data/Figure1_Supplement7B")
 data1=read.table(file = "data/Figure1_Supplement7C")
-head(data1)
 kol=c("darkorange","green3","cyan","violetred1","royalblue1","orangered1","darkorchid1","yellowgreen","slateblue2","tomato","palevioletred2")
 len1=c("missing prop=10%","missing prop=15%","missing prop=20%","missing prop=25%",
        "missing prop=30%","missing prop=35%","missing prop=40%","missing prop=45%",
