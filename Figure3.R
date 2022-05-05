@@ -8,7 +8,7 @@ library(rnaturalearth)
 library(rnaturalearthdata)
 library(rgeos)
 DIR <- "DATES_EuropeanHolocene"
-data=read.table(file = paste(DIR,"data/Figure3_data_map", sep=""),header = T)
+data=read.table(file = "data/Figure3_data_map",header = T)
 head(data)
 world <- ne_countries(scale = "medium", returnclass = "sf")
 Europe <- world[which(world$continent == "Europe"),]
@@ -38,8 +38,8 @@ dev.off()
 # Admixture time plots 
 jpeg(file =paste(DIR,"results/Figure3_map_HG_AdmixtureDates.jpeg", sep=""),width = 16,height = 7,units="in",res =1000)
 par(mai = c(1,1,0.1,3))
-data=read.table(file = paste(DIR,"data/Figure3_data_admixturetimes", sep=""))
-fossil_range=read.table(file = paste(DIR,"data/Figure3_data_fossilages", sep=""))
+data=read.table(file = "data/Figure3_data_admixturetimes")
+fossil_range=read.table(file = "data/Figure3_data_fossilages")
 # Hunter Gatherer mixture panel
 dd=rbind(data[data$V8=="deepskyblue",])
 head(dd)
