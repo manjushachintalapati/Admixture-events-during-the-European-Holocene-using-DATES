@@ -5,7 +5,7 @@ jpeg(file ="results/Figure1_Maintext.jpeg",width = 10,height = 5,units="in",res 
 par(mfrow=c(1,2))
 DIR <- "DATES_EuropeanHolocene"
 # Panel A
-data=read.table(file = paste(DIR,"data/Figure1_data_panelA", sep="/"), header = T)
+data=read.table(file = "data/Figure1_data_panelA", header = T)
 dd=data[data$n==1,]
 plot(x=dd$admixture_time,y=dd$d_mean, col="darkorange2",pch=16,xlab = "True admixture time (gen)",
      ylab = "Estimated admixture time (gen)", ylim = c(0,max(dd$d_mean+dd$d_se)),
@@ -25,7 +25,7 @@ lines(x=dd$admixture_time,y=dd$admixture_time,col="darkgrey",lty=2)
 legend("topleft",legend = c("n=1","n=20"),col=c("darkorange2","green3"),pch = 16,bg = "white");
 
 #panel B
-data=read.table(file = paste(DIR,"data/Figure1_data_panelB", sep="/") ,header = T)
+data=read.table(file = "data/Figure1_data_panelB" ,header = T)
 kol=c("tomato","darkviolet","forestgreen")
 len1=c("missing proportion=10%","missing proportion=30%","missing proportion=60%")
 len=c(10,30,60)
