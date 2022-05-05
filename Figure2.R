@@ -25,7 +25,7 @@ NRMSD <- function(y, yfit,na.rm = TRUE) {
 DIR <- "DATES_EuropeanHolocene"
 # Maps 
 jpeg(file =paste(DIR,"results/Figure2_map.jpeg", sep="") ,width = 12,height =6,units="in",res =1000)
-dd=read.table(file = paste(DIR,"data/Figure2_Data_map", sep="") ,header = T)
+dd=read.table(file = "data/Figure2_Data_map" ,header = T)
 world <- ne_countries(scale = "medium", returnclass = "sf")
 ggplot(world) + geom_sf() + coord_sf(xlim = c(-25,120), ylim = c(35,80), expand = FALSE) + 
   geom_point(data = dd, aes(x=long,y=lat),col=dd$col,inherit.aes = FALSE,pch=18,cex=4,show.legend = F) +
@@ -35,8 +35,8 @@ dev.off()
 # decay curves
 png(file =paste(DIR,"results/Figure2_decay_curves.png", sep=""),width = 12,height = 6,units = "in",res = 500)
 par(mai = c(1,1.1,0.5,0.5), mfrow=c(1,2))
-data=read.table(file = paste(DIR,"data/Figure2_Data_AnatoliaFarmer.fit", sep=""),header = F)
-jout=read.table(file = paste(DIR,"data/Figure2_Data_AnatoliaFarmer.jout", sep=""),header = F)
+data=read.table(file = "data/Figure2_Data_AnatoliaFarmer.fit", header = F)
+jout=read.table(file = "data/Figure2_Data_AnatoliaFarmer.jout",header = F)
 plot(x=data$V1,y=data$V2,type="p",col="darkorchid",pch="*",xlim = c(0,20),xlab = "Genetic Distance(cM)",
      las=1,main = "Early Anatolian farmers",cex=2,cex.main=1.5,cex.axis=1.2,cex.lab=1.2,
      ylab ="")
@@ -48,8 +48,8 @@ len=paste(paste(paste("DATES estimate (gen)",paste(round(jout$V2,0),round(jout$V
           paste("NMRSD",nmrsd,sep="="),sep = "\n")
 legend("topright",legend = len,col = "darkorchid",lty=c(2,-1,-1), cex=1,bty='n')
 
-data=read.table(file = paste(DIR,"data/Figure2_Data_SteppeFarmer.fit", sep=""),header = F)
-jout=read.table(file = paste(DIR,"data/Figure2_Data_SteppeFarmer.jout", sep=""),header = F)
+data=read.table(file = "data/Figure2_Data_SteppeFarmer.fit",header = F)
+jout=read.table(file = "data/Figure2_Data_SteppeFarmer.jout",header = F)
 plot(x=data$V1,y=data$V2,type="p",col="deeppink",pch="*",xlim = c(0,20),xlab = "Genetic Distance(cM)",
      las=1,main = "Early Steppe Pastoralists",cex=2,cex.main=1.5,cex.axis=1.2,cex.lab=1.2,ylab="")
 title(ylab = "Ancestry covariance", mgp = c(4.2, 1, 0)) 
