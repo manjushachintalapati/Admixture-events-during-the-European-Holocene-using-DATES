@@ -60,7 +60,7 @@ lines(x=data$V1,y=data$V3,type = "l",col="darkorchid",lty=2)
 nmrsd=round(NRMSD(data$V2,data$V3),4)
 len=paste(paste(paste("DATES estimate (gen)",paste(round(jout$V2,0),round(jout$V5,0),sep = " ± "),sep = ": "),
                 paste("DATES estimate (BCE)",paste(round(jout$V2,0)*28+8071,round(jout$V5,0)*28,sep = " ± "),sep = ": "),sep = "\n"),
-          paste("NMRSD",nmrsd,sep="="),sep = "\n")
+          paste("NRMSD",nmrsd,sep="="),sep = "\n")
 legend("topright",legend = len,col = "darkorchid",lty=c(2,-1,-1),cex=0.7,bty='n')
 
 dates_files=read.table(file = "data/Figure3_supplement1_FF_curves")
