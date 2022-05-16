@@ -19,7 +19,7 @@ NRMSD <- function(y, yfit,na.rm = TRUE) {
 #Usage: nmrds=round(NRMSD(data$V2,data$V3),4)
 DIR <- "DATES_EuropeanHolocene"
 admix_dates=read.table(file = "data/Figure3_supplement1_admixture_dates")
-pdf(file= "results/Figure3_supplement1.pdf",height=(6*3), width =(6*2))
+pdf(file= "results/Figure 3- figure supplement 1.pdf",height=(6*3), width =(6*2))
 par(mfrow=c(6,4),oma=c(0,0,3.5,0))
 layout(matrix(seq(1,24,1), nrow = 6), heights=c(1,1))
 # HG decay curves
@@ -198,7 +198,7 @@ dev.off()
 # Admixture dates in Iron Gates samples
 rm(list=ls());
 DIR <- "DATES_EuropeanHolocene"
-jpeg(file = "results/Figure3_supplement2.jpeg",width = 9,height = 6,units="in",res =1000)
+jpeg(file = "results/Figure 3- figure supplement 2.jpeg",width = 9,height = 6,units="in",res =1000)
 dd=read.table(file = "data/Figure3_supplement2")
 plot(seq(1,NROW(dd$V1),1),dd$V8,col=as.character(dd$V10),pch=15, 
      ylim =c(3000,19000),las=1, xaxt='n',xlab="",ylab="Admixture time in years BCE",
