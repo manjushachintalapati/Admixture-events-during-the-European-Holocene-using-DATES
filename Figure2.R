@@ -1,6 +1,6 @@
 #Figure2. Formation of ancestral groups- Anatolian farmers and Steppe Yamanaya
 
-# NRMSD function #Usage: nmrds=round(NRMSD(data$V2,data$V3),4)
+# NRMSD function #Usage: nrmds=round(NRMSD(data$V2,data$V3),4)
 rm(list=ls());
 require(ggplot2)
 require(maps)
@@ -42,10 +42,10 @@ plot(x=data$V1,y=data$V2,type="p",col="darkorchid",pch="*",xlim = c(0,20),xlab =
      ylab ="")
 title(ylab = "Ancestry covariance", mgp = c(4.2, 1, 0)) 
 lines(x=data$V1,y=data$V3,type = "l",col="darkorchid",lty=2)
-nmrsd=round(NRMSD(data$V2,data$V3),4)
+nrmsd=round(NRMSD(data$V2,data$V3),4)
 len=paste(paste(paste("DATES estimate (gen)",paste(round(jout$V2,0),round(jout$V5,0),sep = " ± "),sep = ": "),
                 paste("DATES estimate (BCE)",paste(round(jout$V2,0)*28+8071,round(jout$V5,0)*28,sep = " ± "),sep = ": "),sep = "\n"),
-          paste("NRMSD",nmrsd,sep="="),sep = "\n")
+          paste("NRMSD",nrmsd,sep="="),sep = "\n")
 legend("topright",legend = len,col = "darkorchid",lty=c(2,-1,-1), cex=1,bty='n')
 
 data=read.table(file = "data/Figure2_Data_SteppeFarmer.fit",header = F)
@@ -54,10 +54,10 @@ plot(x=data$V1,y=data$V2,type="p",col="deeppink",pch="*",xlim = c(0,20),xlab = "
      las=1,main = "Early Steppe Pastoralists",cex=2,cex.main=1.5,cex.axis=1.2,cex.lab=1.2,ylab="")
 title(ylab = "Ancestry covariance", mgp = c(4.2, 1, 0)) 
 lines(x=data$V1,y=data$V3,type = "l",col="deeppink",lty=2)
-nmrsd=round(NRMSD(data$V2,data$V3),4)
+nrmsd=round(NRMSD(data$V2,data$V3),4)
 len=paste(paste(paste("DATES estimate (gen)",paste(round(jout$V2,0),round(jout$V5,0),sep = " ± "),sep = ": "),
                 paste("DATES estimate (BCE)",paste(round(jout$V2,0)*28+2881,round(jout$V5,0)*28,sep = " ± "),sep = ": "),sep = "\n"),
-          paste("NRMSD",nmrsd,sep="="),sep = "\n")
+          paste("NRMSD",nrmsd,sep="="),sep = "\n")
 legend("topright",legend = len,col = "deeppink",lty=c(2,-1,-1), cex=1,bty='n')
 
 dev.off()
