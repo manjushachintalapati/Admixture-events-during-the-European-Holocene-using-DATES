@@ -25,7 +25,7 @@ dev.off()
 rm(list=ls())
 DIR <- "DATES_EuropeanHolocene"
 png("results/Figure 1 - figure supplement 2.png",width = 10, height = 6, units = 'in', res = 200)
-par(mfrow=c(4,3))
+par(mfrow=c(2,4))
 data=read.table(file = "data/Figure1_Supplement2A")
 kol=c("darkorange2","green3","violetred1","royalblue1","coral","yellow3","cyan2","darkgoldenrod1","darkorchid1","dodgerblue1",
       "paleturquoise4");
@@ -47,10 +47,14 @@ for(i in arr)
 }
 # Panel B - reference sample size
 data=read.table(file = "data/Figure1_Supplement2B")
+kol=c("darkorange","green3","cyan2","violetred1","royalblue1")
 len1=c("reference pop size=1","reference pop size=5","reference pop size=10","reference pop size=20")
+len=c(1,5,10,20)
+#par(mfrow=c(3,2))
 c=1;
 for(i in len)
 {
+  #len=1
   k=which(i==len);
   dd=data[data$V1==i,]
   plot(x=dd$V2,y=dd$V3, col=kol[c],pch=17,xlab = "True admixture time (gen)",
@@ -66,12 +70,14 @@ title("(A) Effect of sample size of target population", line = -1.5, outer = TRU
 title("(B) Effect of sample size of reference populations", line = -25, outer = TRUE,cex=1.3)
 dev.off()
 
+
 # Figure 1: Supplement 3
 #Impact of admixture proportion on the inference of (a) time of gene flow (b) estimated admixture proportion
 # panel A- Time of gene flow
 rm(list=ls())
 DIR <- "DATES_EuropeanHolocene"
 png("results/Figure 1 - figure supplement 3.png",width = 10, height = 6, units = 'in', res = 200)
+par(mfrow=c(2,4))
 data=read.table(file = "data/Figure1_Supplement3A")
 len=c("α=0.01","α=0.05","α=0.2","α=0.4")
 arr=c(0.01,0.05,2,4)
